@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	xlibs	# with xlibs
+#
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
@@ -9,6 +13,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.t
 # Source0-md5:	ee26630368b541dc101a65e46e67f5c4
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
+%{?with_xlibs:BuildRequires:	libX11-devel}
 BuildRequires:	GConf2-devel >= 2.6.1
 BuildRequires:	ORBit2-devel >= 2.10.2
 BuildRequires:	autoconf
@@ -75,6 +80,12 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %prep
 %setup -q
 %patch0 -p1
+
+%if %{with xlibs}
+sed -ie \
+	's/AC_PATH_XTRA/PKG_CHECK_MODULES(X, [x11], [$x_no = no])/' \
+	configure.in
+%endif
 
 mv po/{no,nb}.po
 
