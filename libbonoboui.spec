@@ -5,20 +5,20 @@ Version:	2.0.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/libbonoboui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1
-BuildRequires:	ORBit2-devel >= 2.4.1
+BuildRequires:	ORBit2-devel >= 2.4.3
 BuildRequires:	bonobo-activation-devel >= 1.0.3
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libart_lgpl-devel >= 2.3.10
 BuildRequires:	libbonobo-devel >= 2.0.0
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.2
-BuildRequires:	libgnomecanvas-devel >= 2.0.2
-BuildRequires:	libxml2-devel >= 2.4.23
+BuildRequires:	libgnome-devel >= 2.0.3
+BuildRequires:	libgnomecanvas-devel >= 2.0.3
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	openssl-devel >= 0.9.6d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
