@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.2/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-locale-sr.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.2.0
 BuildRequires:	ORBit2-devel >= 2.5.0
@@ -76,6 +77,11 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 
 %prep
 %setup -q
+%patch -p1
+
+# sr_YU is latin2, sr_YU@cyrillic is cyrillic in glibc
+mv -f po/{sr.po,sr@cyrillic.po}
+mv -f po/{sr@Latn.po,sr.po}
 
 %build
 rm -f missing
