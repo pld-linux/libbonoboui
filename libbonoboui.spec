@@ -1,8 +1,8 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	1.117.0
-Release:	3
+Version:	1.117.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
@@ -10,6 +10,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.1.10
 BuildRequires:	ORBit2-devel >= 2.3.110
 BuildRequires:	bonobo-activation-devel >= 0.9.9
+BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.0.2
 BuildRequires:	intltool >= 0.21
 BuildRequires:	libart_lgpl-devel >= 2.3.8
@@ -77,7 +78,7 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %build
 rm -d missing
 libtoolize --copy --force
-aclocal
+aclocal -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
 %configure \
