@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.2/%{name}-%{version}.tar.bz2
+# Source0-md5: 546737fad5bdc0355fb98299018eb17a
 Patch0:		%{name}-locale-sr.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.2.0
