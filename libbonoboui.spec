@@ -95,6 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
+# no static modules
+rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -108,8 +111,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_libdir}/libglade/2.0/*.la
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
+%{_libdir}/libglade/2.0/*.la
 %{_libdir}/bonobo/servers/*
 %{_libdir}/bonobo-2.0/samples/*
 %{_datadir}/gnome-2.0
@@ -126,4 +129,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
-%{_libdir}/libglade/2.0/*.a
