@@ -1,23 +1,23 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	1.116.0
-Release:	0.2
+Version:	1.117.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel
-BuildRequires:	ORBit2-devel
-BuildRequires:	bonobo-activation-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	intltool
-BuildRequires:	libart_lgpl-devel
-BuildRequires:	libbonobo-devel >= 1.116
-BuildRequires:	libglade2-devel
-BuildRequires:	libgnome-devel >= 1.116.0
-BuildRequires:	libgnomecanvas-devel >= 1.116.0
-BuildRequires:	libxml2-devel
+BuildRequires:	GConf2-devel >= 1.1.10
+BuildRequires:	ORBit2-devel >= 2.3.110
+BuildRequires:	bonobo-activation-devel >= 0.9.9
+BuildRequires:	gtk+2-devel >= 2.0.2
+BuildRequires:	intltool >= 0.21
+BuildRequires:	libart_lgpl-devel >= 2.3.8
+BuildRequires:	libbonobo-devel >= 1.117.0
+BuildRequires:	libglade2-devel >= 1.99.12
+BuildRequires:	libgnome-devel >= 1.117.0
+BuildRequires:	libgnomecanvas-devel >= 1.117.0
+BuildRequires:	libxml2-devel >= 2.4.21
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
