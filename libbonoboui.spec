@@ -41,7 +41,7 @@ interfejsem u¿ytkownika, które przychodz± z Bonobo.
 Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.5.0
 Requires:	libart_lgpl-devel >= 2.3.14
 Requires:	libbonobo-devel >= 2.5.3
@@ -66,7 +66,7 @@ u¿ywaj±cych libbonoboui.
 Summary:	Static libbonoboui library
 Summary(pl):	Statyczna biblioteka libbonoboui
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of libbonoboui.
