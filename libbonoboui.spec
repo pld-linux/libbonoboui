@@ -30,6 +30,7 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.13
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
+%{?with_xlibs:BuildRequires:	sed >= 4.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
