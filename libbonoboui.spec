@@ -6,7 +6,6 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-gconf2.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.1.8
 BuildRequires:	ORBit2-devel
@@ -65,7 +64,6 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 # intltool 0.13 wants NDBM_File, which we don't include
