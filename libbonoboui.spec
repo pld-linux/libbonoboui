@@ -22,7 +22,7 @@ BuildRequires:	libgnome-devel >= 2.3.3
 BuildRequires:	libgnomecanvas-devel >= 2.3.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.7
-BuildRequires:	openssl-devel >= 0.9.7c
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
