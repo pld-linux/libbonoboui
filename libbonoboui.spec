@@ -1,30 +1,30 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.1.2
+Version:	2.2.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.2/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.2.1-9
+BuildRequires:	GConf2-devel >= 2.2.0
 BuildRequires:	ORBit2-devel >= 2.5.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bonobo-activation-devel >= 2.1.0-3
+BuildRequires:	bonobo-activation-devel >= 2.2.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	intltool >= 0.22
 BuildRequires:	libart_lgpl-devel >= 2.3.10
-BuildRequires:	libbonobo-devel >= 2.1.0-3
+BuildRequires:	libbonobo-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnome-devel >= 2.0.3
-BuildRequires:	libgnomecanvas-devel >= 2.0.3
+BuildRequires:	libgnome-devel >= 2.1.90
+BuildRequires:	libgnomecanvas-devel >= 2.1.90
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.4.24
-BuildRequires:	openssl-devel >= 0.9.6d
-BuildRequires:	rpm-build >= 4.1-8.2
-Requires:	bonobo-activation >= 2.1.0-3
+BuildRequires:	libxml2-devel >= 2.5.1
+BuildRequires:	openssl-devel >= 0.9.7
+BuildRequires:	rpm-build >= 4.1-10
+Requires:	bonobo-activation >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
