@@ -111,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.??
 %{_libdir}/bonobo/servers/*
-%{_libdir}/bonobo/samples/*
+%{_libdir}/bonobo-2.0/samples/*
 %{_datadir}/gnome-2.0
 
 %files devel
