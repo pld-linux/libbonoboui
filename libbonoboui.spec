@@ -19,7 +19,7 @@ BuildRequires:	libglade2-devel >= 1.99.12
 BuildRequires:	libgnome-devel >= 1.117.0
 BuildRequires:	libgnomecanvas-devel >= 1.117.0
 BuildRequires:	libxml2-devel >= 2.4.21
-BuildRequires:	openssl-devel
+BuildRequires:	openssl-devel >= 0.9.6m
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
