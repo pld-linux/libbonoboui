@@ -1,29 +1,29 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.5.3
+Version:	2.5.4
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	8d172c1eda43662a77248bc0ccab7388
+# Source0-md5:	147ff16d23607e350fb1bdd5e10e39f7
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.5.0
+BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	ORBit2-devel >= 2.9.2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2.3.1
+BuildRequires:	gtk+2-devel >= 2:2.3.5
+BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.29
-BuildRequires:	libart_lgpl-devel >= 2.3.14
-BuildRequires:	libbonobo-devel >= 2.5.3
+BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libglade2-devel >= 2.3.1
-BuildRequires:	libgnome-devel >= 2.5.1
-BuildRequires:	libgnomecanvas-devel >= 2.5.1
+BuildRequires:	libgnome-devel >= 2.5.90
+BuildRequires:	libgnomecanvas-devel >= 2.5.90
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.7
-BuildRequires:	openssl-devel >= 0.9.7c
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,14 +42,12 @@ Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.5.0
-Requires:	libart_lgpl-devel >= 2.3.14
-Requires:	libbonobo-devel >= 2.5.3
+Requires:	GConf2-devel >= 2.5.90
+Requires:	libbonobo-devel >= 2.6.0
 Requires:	libglade2-devel >= 2.3.1
-Requires:	libgnome-devel >= 2.5.1
-Requires:	libgnomecanvas-devel >= 2.5.1
+Requires:	libgnome-devel >= 2.5.90
+Requires:	libgnomecanvas-devel >= 2.5.90
 Requires:	libxml2-devel >= 2.5.7
-Requires:	openssl-devel >= 0.9.7c
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -87,6 +85,7 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
+	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
