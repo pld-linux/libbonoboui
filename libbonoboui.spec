@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.2.2
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libart_lgpl-devel >= 2.3.10
+BuildRequires:	libart_lgpl-devel >= 2.3.14
 BuildRequires:	libbonobo-devel >= 2.3.3
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.3.3
