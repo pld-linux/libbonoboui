@@ -95,9 +95,9 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %setup -q
 
 %build
-# intltool 0.13 wants NDBM_File, which we don't include 
+# intltool 0.13 wants NDBM_File, which we don't include
 intltoolize --force --copy
-%configure 
+%configure
 
 %{__make}
 
