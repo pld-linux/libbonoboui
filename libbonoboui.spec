@@ -22,7 +22,7 @@ BuildRequires:	libgnome-devel >= 2.3.3
 BuildRequires:	libgnomecanvas-devel >= 2.3.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.7
-BuildRequires:	openssl-devel >= 0.9.7
+BuildRequires:	openssl-devel >= 0.9.7c
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,7 +48,7 @@ Requires:	libglade2-devel >= 2.0.0
 Requires:	libgnome-devel >= 2.0.2
 Requires:	libgnomecanvas-devel >= 2.0.2
 Requires:	libxml2-devel >= 2.4.23
-Requires:	openssl-devel >= 0.9.7
+Requires:	openssl-devel >= 0.9.7c
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
