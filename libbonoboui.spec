@@ -1,28 +1,28 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.6.0
+Version:	2.6.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	948dbd0ffe2c460ff2986254a40a5c7f
+# Source0-md5:	ee26630368b541dc101a65e46e67f5c4
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.6.0
-BuildRequires:	ORBit2-devel >= 2.10.0
+BuildRequires:	GConf2-devel >= 2.6.1
+BuildRequires:	ORBit2-devel >= 2.10.2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.1
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.29
 BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	libgnome-devel >= 2.6.0
-BuildRequires:	libgnomecanvas-devel >= 2.6.0
+BuildRequires:	libgnome-devel >= 2.6.1.1
+BuildRequires:	libgnomecanvas-devel >= 2.6.1.1
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.5.7
+BuildRequires:	libxml2-devel >= 2.6.9
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,12 +42,12 @@ Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.6.0
+Requires:	GConf2-devel >= 2.6.1
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libglade2-devel >= 1:2.3.6
-Requires:	libgnome-devel >= 2.6.0
-Requires:	libgnomecanvas-devel >= 2.6.0
-Requires:	libxml2-devel >= 2.5.7
+Requires:	libgnome-devel >= 2.6.1.1
+Requires:	libgnomecanvas-devel >= 2.6.1.1
+Requires:	libxml2-devel >= 2.6.9
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
