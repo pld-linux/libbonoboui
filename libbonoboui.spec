@@ -5,23 +5,24 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.8.0
+Version:	2.8.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	73e0b8883d8bea6b3bbd297dbbcb1f36
+# Source0-md5:	b23daafa8344a88696d497f20285ef55
+Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 %{?with_xlibs:BuildRequires:	libX11-devel}
 BuildRequires:	GConf2-devel >= 2.8.0.1
-BuildRequires:	ORBit2-devel >= 2.11.2
+BuildRequires:	ORBit2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.1
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonobo-devel >= 2.8.0
+BuildRequires:	libbonobo-devel >= 2.8.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnome-devel >= 2.8.0
 BuildRequires:	libgnomecanvas-devel >= 2.8.0
@@ -47,7 +48,7 @@ Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.8.0.1
-Requires:	libbonobo-devel >= 2.8.0
+Requires:	libbonobo-devel >= 2.8.1
 Requires:	libglade2-devel >= 1:2.4.0
 Requires:	libgnome-devel >= 2.8.0
 Requires:	libgnomecanvas-devel >= 2.8.0
@@ -78,6 +79,7 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %if %{with xlibs}
 sed -ie \
@@ -124,6 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/bonobo/servers/*
 %{_libdir}/bonobo-2.0/samples/*
 %{_datadir}/gnome-2.0
+%{_desktopdir}/*.desktop
 
 %files devel
 %defattr(644,root,root,755)
