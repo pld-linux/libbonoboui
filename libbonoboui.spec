@@ -7,7 +7,7 @@ License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.1.11
+BuildRequires:	GConf2-devel >= 1.2.0
 BuildRequires:	ORBit2-devel >= 2.4.0
 BuildRequires:	bonobo-activation-devel >= 1.0.0
 BuildRequires:	gnome-common
@@ -16,8 +16,8 @@ BuildRequires:	intltool >= 0.22
 BuildRequires:	libart_lgpl-devel >= 2.3.8
 BuildRequires:	libbonobo-devel >= 2.0.0
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.0
-BuildRequires:	libgnomecanvas-devel >= 2.0.0
+BuildRequires:	libgnome-devel >= 2.0.1
+BuildRequires:	libgnomecanvas-devel >= 2.0.1
 BuildRequires:	libxml2-devel >= 2.4.22
 BuildRequires:	openssl-devel >= 0.9.6d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,14 +40,14 @@ Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	GConf2-devel >= 1.1.10
+Requires:	GConf2-devel >= 1.1.11
 Requires:	libart_lgpl-devel >= 2.3.8
-Requires:	libbonobo-devel >= 1.117.0
-Requires:	libglade2-devel >= 1.99.12
-Requires:	libgnome-devel >= 1.117.0
-Requires:	libgnomecanvas-devel >= 1.117.0
-Requires:	libxml2-devel >= 2.4.21
-Requires:	openssl-devel
+Requires:	libbonobo-devel >= 2.0.0
+Requires:	libglade2-devel >= 2.0.0
+Requires:	libgnome-devel >= 2.0.1
+Requires:	libgnomecanvas-devel >= 2.0.1
+Requires:	libxml2-devel >= 2.4.22
+Requires:	openssl-devel >= 0.9.6d
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
