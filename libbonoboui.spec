@@ -1,22 +1,22 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.5.1
+Version:	2.5.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	b0a51617009b9351f231a082206f8729
+# Source0-md5:	9187d436a8a442c66dfeea79190c0099
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.3.3
+BuildRequires:	GConf2-devel >= 2.5.0
 BuildRequires:	ORBit2-devel >= 2.9.2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.3.1
-BuildRequires:	intltool >= 0.28
+BuildRequires:	intltool >= 0.29
 BuildRequires:	libart_lgpl-devel >= 2.3.14
-BuildRequires:	libbonobo-devel >= 2.5.1
+BuildRequires:	libbonobo-devel >= 2.5.3
 BuildRequires:	libglade2-devel >= 2.3.1
 BuildRequires:	libgnome-devel >= 2.5.1
 BuildRequires:	libgnomecanvas-devel >= 2.5.1
@@ -41,13 +41,13 @@ Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	GConf2-devel >= 1.2.1
-Requires:	libart_lgpl-devel >= 2.3.10
-Requires:	libbonobo-devel >= 2.5.1
+Requires:	GConf2-devel >= 2.5.0
+Requires:	libart_lgpl-devel >= 2.3.14
+Requires:	libbonobo-devel >= 2.5.3
 Requires:	libglade2-devel >= 2.3.1
 Requires:	libgnome-devel >= 2.5.1
 Requires:	libgnomecanvas-devel >= 2.5.1
-Requires:	libxml2-devel >= 2.4.23
+Requires:	libxml2-devel >= 2.5.7
 Requires:	openssl-devel >= 0.9.7c
 
 %description devel
