@@ -2,7 +2,7 @@ Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	1.116.0
-Release:	0.1
+Release:	0.2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
@@ -68,6 +68,7 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %build
 # intltool 0.13 wants NDBM_File, which we don't include
 #ntltoolize --force --copy
+libtoolize --copy --force
 %configure \
 	--enable-gtk-doc=no
 
@@ -93,14 +94,15 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc {AUTHORS,ChangeLog,NEWS,README}.gz
+%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.??
 %{_libdir}/bonobo/servers/*
-#%{_datadir}/gnome-2.0
+%{_libdir}/bonobo-2.0/samples/*
+%{_datadir}/gnome-2.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_pkgconfigdir}/*.pc
