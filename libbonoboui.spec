@@ -1,24 +1,24 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.0.0
+Version:	2.0.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.2.0
-BuildRequires:	ORBit2-devel >= 2.4.0
-BuildRequires:	bonobo-activation-devel >= 1.0.0
+BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	ORBit2-devel >= 2.4.1
+BuildRequires:	bonobo-activation-devel >= 1.0.3
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.0.3
 BuildRequires:	intltool >= 0.22
-BuildRequires:	libart_lgpl-devel >= 2.3.8
+BuildRequires:	libart_lgpl-devel >= 2.3.10
 BuildRequires:	libbonobo-devel >= 2.0.0
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.1
-BuildRequires:	libgnomecanvas-devel >= 2.0.1
-BuildRequires:	libxml2-devel >= 2.4.22
+BuildRequires:	libgnome-devel >= 2.0.2
+BuildRequires:	libgnomecanvas-devel >= 2.0.2
+BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	openssl-devel >= 0.9.6d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,13 +40,13 @@ Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	GConf2-devel >= 1.1.11
-Requires:	libart_lgpl-devel >= 2.3.8
+Requires:	GConf2-devel >= 1.2.1
+Requires:	libart_lgpl-devel >= 2.3.10
 Requires:	libbonobo-devel >= 2.0.0
 Requires:	libglade2-devel >= 2.0.0
-Requires:	libgnome-devel >= 2.0.1
-Requires:	libgnomecanvas-devel >= 2.0.1
-Requires:	libxml2-devel >= 2.4.22
+Requires:	libgnome-devel >= 2.0.2
+Requires:	libgnomecanvas-devel >= 2.0.2
+Requires:	libxml2-devel >= 2.4.23
 Requires:	openssl-devel >= 0.9.6d
 
 %description devel
@@ -121,3 +121,4 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%{_libdir}/libglade/2.0/*.a
