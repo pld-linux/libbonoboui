@@ -2,7 +2,7 @@ Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.1.1
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
@@ -28,8 +28,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
-%define		_bonobo_server_dir	/usr/lib/bonobo/servers
-%define		_bonobo_example_dir	/usr/lib/bonobo-2.0/samples
 
 %description
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -96,9 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	pkgconfigdir=%{_pkgconfigdir} \
-	serverdir=%{_bonobo_server_dir} \
-	samplesdir=%{_bonobo_example_dir}
+	pkgconfigdir=%{_pkgconfigdir}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -114,8 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.??
-%{_bonobo_server_dir}/*
-%{_bonobo_example_dir}
+%{_libdir}/bonobo/servers/*
+%{_libdir}/bonobo/samples/*
 %{_datadir}/gnome-2.0
 
 %files devel
