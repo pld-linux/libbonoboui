@@ -28,7 +28,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
-%define		_serverdir	/usr/lib/bonobo/servers
+%define		_bonobo_server_dir	/usr/lib/bonobo/servers
 %define		_samplesdir	/usr/lib/bonobo-2.0/samples
 
 %description
@@ -97,7 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir} \
-	serverdir=%{_serverdir} \
+	serverdir=%{_bonobo_server_dir} \
 	samplesdir=%{_samplesdir}
 
 %find_lang %{name} --with-gnome --all-name
@@ -114,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.??
-%{_serverdir}/*
+%{_bonobo_server_dir}/*
 %{_samplesdir}
 %{_datadir}/gnome-2.0
 
