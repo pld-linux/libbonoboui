@@ -9,6 +9,7 @@
 %define libglade2_version 1.99.5.90
 
 Summary:	Bonobo user interface components
+Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	1.110.0
 Release:	4
@@ -32,16 +33,16 @@ Requires:	libgnome >= %{libgnome_version}
 Requires:	libart_lgpl >= %{libart_lgpl_version}
 Requires:	gtk2 >= %{gtk2_version}
 Requires:	libglade2 >= %{libglade2_version}
-BuildPreReq:	libxml2-devel >= %{libxml2_version}
-BuildPreReq:	ORBit2-devel >= %{orbit2_version}
-BuildPreReq:	bonobo-activation-devel >= %{bonobo_activation_version}
-BuildPreReq:	libbonobo-devel >= %{libbonobo_version}
-BuildPreReq:	libgnomecanvas-devel >= %{libgnomecanvas_version}
-BuildPreReq:	libgnome-devel >= %{libgnome_version}
-BuildPreReq:	libart_lgpl-devel >= %{libart_lgpl_version}
-BuildPreReq:	gtk2-devel >= %{gtk2_version}
-BuildPreReq:	libglade2-devel >= %{libglade2_version}
-BuildPreReq:	intltool >= 0.14-1
+BuildRequires:	libxml2-devel >= %{libxml2_version}
+BuildRequires:	ORBit2-devel >= %{orbit2_version}
+BuildRequires:	bonobo-activation-devel >= %{bonobo_activation_version}
+BuildRequires:	libbonobo-devel >= %{libbonobo_version}
+BuildRequires:	libgnomecanvas-devel >= %{libgnomecanvas_version}
+BuildRequires:	libgnome-devel >= %{libgnome_version}
+BuildRequires:	libart_lgpl-devel >= %{libart_lgpl_version}
+BuildRequires:	gtk2-devel >= %{gtk2_version}
+BuildRequires:	libglade2-devel >= %{libglade2_version}
+BuildRequires:	intltool >= 0.14-1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -52,8 +53,14 @@ Bonobo is a component system based on CORBA, used by the GNOME
 desktop. libbonoboui contains the user interface related components
 that come with Bonobo.
 
+%description -l pl
+Bonobo jest systemem komponentów bazuj±cym na CORB-ie, u¿ywanym przez
+¶rodowisko GNOME. libbonoboui zawiera komponenty zwi±zane z
+interfejsem u¿ytkownika, które przychodz± z Bonobo.
+
 %package devel
-Summary:	Libraries and headers for libbonoboui
+Summary:	Headers for libbonoboui
+Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -62,7 +69,7 @@ Group(pl):	X11/Programowanie/Biblioteki
 Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
 Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
 Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
-Requires:	%name = %{version}
+Requires:	%{name} = %{version}
 Requires:	libxml2-devel >= %{libxml2_version}
 Requires:	ORBit2-devel >= %{orbit2_version}
 Requires:	bonobo-activation-devel >= %{bonobo_activation_version}
@@ -81,6 +88,30 @@ desktop. libbonoboui contains GUI components that come with Bonobo.
 This package contains header files used to compile programs that use
 libbonoboui.
 
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe potrzebne do kompilacji programów
+u¿ywaj±cych libbonoboui.
+
+%package static
+Summary:	Static libbonoboui library
+Summary(pl):	Statyczna biblioteka libbonoboui
+Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
+Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
+Requires:	%{name}-devel = %{version}
+Conflicts:	bonobo-static < 1.0.8
+
+%description static
+This package contains static version of libbonoboui.
+
+%description static -l pl
+Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
+
 %prep
 %setup -q
 
@@ -97,6 +128,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+gzip -9nf AUTHORS ChangeLog NEWS README
+
 %find_lang %{name}
 
 %clean
@@ -107,9 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-
-%doc AUTHORS ChangeLog NEWS README
-
+%doc {AUTHORS,ChangeLog,NEWS,README}.gz
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/libglade/2.0/*
 %{_libdir}/bonobo
@@ -120,6 +151,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
-%{_libdir}/lib*.a
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
