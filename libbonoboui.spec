@@ -28,7 +28,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
-%define   _serverdir  /usr/lib/bonobo/servers
+%define		_serverdir	/usr/lib/bonobo/servers
+%define		_samplesdir	/usr/lib/bonobo-2.0/samples
 
 %description
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -96,7 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir} \
-	serverdir=%{_serverdir}
+	serverdir=%{_serverdir} \
+	samplesdir=%{_samplesdir}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -113,7 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.??
 %{_serverdir}/*
-%{_libdir}/bonobo-2.0/samples/*
+%{_samplesdir}
 %{_datadir}/gnome-2.0
 
 %files devel
