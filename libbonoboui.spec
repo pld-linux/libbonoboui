@@ -6,7 +6,7 @@ Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.8.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
@@ -18,6 +18,7 @@ BuildRequires:	GConf2-devel >= 2.8.0.1
 BuildRequires:	ORBit2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	howl-devel >= 0.9.10
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.1
 BuildRequires:	gtk-doc >= 1.0
