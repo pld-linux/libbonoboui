@@ -2,12 +2,12 @@ Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.1.1
-Release:	3
+Release:	4
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	GConf2-devel >= 1.2.1-9
 BuildRequires:	ORBit2-devel >= 2.5.0
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -23,11 +23,9 @@ BuildRequires:	libgnomecanvas-devel >= 2.0.3
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	openssl-devel >= 0.9.6d
+BuildRequires:	rpm-build >= 4.1-8.2
 Requires:	bonobo-activation >= 2.1.0-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Bonobo is a component system based on CORBA, used by the GNOME
