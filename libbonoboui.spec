@@ -15,13 +15,6 @@ Version:	1.110.0
 Release:	4
 License:	LGPL
 Group:		X11/Libraries
-Group(de):	X11/Libraries
-Group(es):	X11/Bibliotecas
-Group(fr):	X11/Librairies
-Group(pl):	X11/Biblioteki
-Group(pt_BR):	X11/Bibliotecas
-Group(ru):	X11/Библиотеки
-Group(uk):	X11/Б╕бл╕отеки
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 Requires:	libxml2 >= %{libxml2_version}
@@ -62,13 +55,6 @@ interfejsem u©ytkownika, ktСre przychodz╠ z Bonobo.
 Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nagЁСwkowe libbonoboui
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	libxml2-devel >= %{libxml2_version}
 Requires:	ORBit2-devel >= %{orbit2_version}
@@ -96,13 +82,6 @@ u©ywaj╠cych libbonoboui.
 Summary:	Static libbonoboui library
 Summary(pl):	Statyczna biblioteka libbonoboui
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 Conflicts:	bonobo-static < 1.0.8
 
