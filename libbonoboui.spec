@@ -1,7 +1,7 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.2.0
+Version:	2.2.0.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -18,8 +18,8 @@ BuildRequires:	intltool >= 0.22
 BuildRequires:	libart_lgpl-devel >= 2.3.10
 BuildRequires:	libbonobo-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnome-devel >= 2.1.90
-BuildRequires:	libgnomecanvas-devel >= 2.1.90
+BuildRequires:	libgnome-devel >= 2.2.0
+BuildRequires:	libgnomecanvas-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.1
 BuildRequires:	openssl-devel >= 0.9.7
@@ -83,7 +83,8 @@ rm -f missing
 %{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
 
@@ -120,6 +121,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_pkgconfigdir}/*.pc
 %{_includedir}/libbonoboui-2.0
+%{_gtkdocdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
