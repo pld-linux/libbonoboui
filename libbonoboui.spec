@@ -9,6 +9,8 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.0/%{name}-%{version}.t
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	ORBit2-devel >= 2.4.3
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bonobo-activation-devel >= 1.0.3
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.0.6
@@ -18,6 +20,7 @@ BuildRequires:	libbonobo-devel >= 2.0.0
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.0.3
 BuildRequires:	libgnomecanvas-devel >= 2.0.3
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	openssl-devel >= 0.9.6d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -76,9 +79,9 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %setup -q
 
 %build
-rm -d missing
+rm -f missing
 %{__libtoolize}
-aclocal -I %{_aclocaldir}/gnome2-macros
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
 %configure
