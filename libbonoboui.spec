@@ -107,7 +107,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/libglade/2.0/*.??
+%{_libdir}/libglade/2.0/*.la
+%attr(755,root,root) %{_libdir}/libglade/2.0/*.so
 %{_libdir}/bonobo/servers/*
 %{_libdir}/bonobo-2.0/samples/*
 %{_datadir}/gnome-2.0
