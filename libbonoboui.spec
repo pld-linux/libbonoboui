@@ -1,25 +1,25 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	1.117.1
+Version:	2.0.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libbonoboui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.1.10
-BuildRequires:	ORBit2-devel >= 2.3.110
-BuildRequires:	bonobo-activation-devel >= 0.9.9
+BuildRequires:	GConf2-devel >= 1.1.11
+BuildRequires:	ORBit2-devel >= 2.4.0
+BuildRequires:	bonobo-activation-devel >= 1.0.0
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2.0.2
-BuildRequires:	intltool >= 0.21
+BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	intltool >= 0.22
 BuildRequires:	libart_lgpl-devel >= 2.3.8
-BuildRequires:	libbonobo-devel >= 1.117.0
-BuildRequires:	libglade2-devel >= 1.99.12
-BuildRequires:	libgnome-devel >= 1.117.0
-BuildRequires:	libgnomecanvas-devel >= 1.117.0
-BuildRequires:	libxml2-devel >= 2.4.21
-BuildRequires:	openssl-devel
+BuildRequires:	libbonobo-devel >= 2.0.0
+BuildRequires:	libglade2-devel >= 2.0.0
+BuildRequires:	libgnome-devel >= 2.0.0
+BuildRequires:	libgnomecanvas-devel >= 2.0.0
+BuildRequires:	libxml2-devel >= 2.4.22
+BuildRequires:	openssl-devel >= 0.9.6d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -81,8 +81,7 @@ libtoolize --copy --force
 aclocal -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
-%configure \
-	--enable-gtk-doc=no
+%configure
 
 %{__make}
 
@@ -113,6 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc doc/*.xml doc/*.txt doc/*.html doc/*.dtd
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_pkgconfigdir}/*.pc
