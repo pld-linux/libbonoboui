@@ -1,28 +1,29 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.4.3
+Version:	2.6.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	b2e4b0e62d5d32ba713221fb63faa6d1
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	948dbd0ffe2c460ff2986254a40a5c7f
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.3.3
-BuildRequires:	ORBit2-devel >= 2.7.6
+BuildRequires:	GConf2-devel >= 2.6.0
+BuildRequires:	ORBit2-devel >= 2.10.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2.2.2
-BuildRequires:	intltool >= 0.22
-BuildRequires:	libart_lgpl-devel >= 2.3.14
-BuildRequires:	libbonobo-devel >= 2.4.0
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnome-devel >= 2.3.3
-BuildRequires:	libgnomecanvas-devel >= 2.3.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	intltool >= 0.29
+BuildRequires:	libbonobo-devel >= 2.6.0
+BuildRequires:	libglade2-devel >= 1:2.3.6
+BuildRequires:	libgnome-devel >= 2.6.0
+BuildRequires:	libgnomecanvas-devel >= 2.6.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.5.7
-BuildRequires:	openssl-devel >= 0.9.7d
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,15 +41,13 @@ interfejsem u¿ytkownika, które przychodz± z Bonobo.
 Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	GConf2-devel >= 1.2.1
-Requires:	libart_lgpl-devel >= 2.3.10
-Requires:	libbonobo-devel >= 2.0.0
-Requires:	libglade2-devel >= 2.0.0
-Requires:	libgnome-devel >= 2.0.2
-Requires:	libgnomecanvas-devel >= 2.0.2
-Requires:	libxml2-devel >= 2.4.23
-Requires:	openssl-devel >= 0.9.7c
+Requires:	%{name} = %{version}-%{release}
+Requires:	GConf2-devel >= 2.6.0
+Requires:	libbonobo-devel >= 2.6.0
+Requires:	libglade2-devel >= 1:2.3.6
+Requires:	libgnome-devel >= 2.6.0
+Requires:	libgnomecanvas-devel >= 2.6.0
+Requires:	libxml2-devel >= 2.5.7
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -65,7 +64,7 @@ u¿ywaj±cych libbonoboui.
 Summary:	Static libbonoboui library
 Summary(pl):	Statyczna biblioteka libbonoboui
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of libbonoboui.
@@ -75,6 +74,9 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
 %{__libtoolize}
@@ -82,6 +84,7 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %{__autoconf}
 %{__automake}
 %configure \
+	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
