@@ -11,7 +11,7 @@ BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	ORBit2-devel >= 2.4.3
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bonobo-activation-devel >= 2.1.0
+BuildRequires:	bonobo-activation-devel >= 1.0.0
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	intltool >= 0.22
