@@ -23,6 +23,8 @@ BuildRequires:	libgnomecanvas-devel >= 2.0.3
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	openssl-devel >= 0.9.6d
+BuildConflicts:	bonobo-activation-devel >= 2.1.0
+Conflicts:	bonobo-activation >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
