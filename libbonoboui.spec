@@ -77,7 +77,7 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 
 %build
 rm -d missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
