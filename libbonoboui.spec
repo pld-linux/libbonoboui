@@ -1,12 +1,12 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.4.0
+Version:	2.4.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	176e1a094ecbfaf765c9996fc3eccf3c
+# Source0-md5:	943a2d0e9fc7b9f0e97ba869de0c5f2a
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.3.3
 BuildRequires:	ORBit2-devel >= 2.7.6
