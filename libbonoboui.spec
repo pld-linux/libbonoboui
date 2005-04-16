@@ -6,29 +6,29 @@ Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.8.1
-Release:	5
+Release:	4
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libbonoboui/2.8/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	b23daafa8344a88696d497f20285ef55
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 %{?with_xlibs:BuildRequires:	libX11-devel}
-BuildRequires:	GConf2-devel >= 2.10.0
-BuildRequires:	ORBit2-devel >= 1:2.12.1
+BuildRequires:	GConf2-devel >= 2.8.0.1
+BuildRequires:	ORBit2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	howl-devel >= 0.9.10
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	gtk-doc >= 1.3
-BuildRequires:	intltool >= 0.33
+BuildRequires:	gtk+2-devel >= 2:2.4.1
+BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	intltool >= 0.29
 BuildRequires:	libbonobo-devel >= 2.8.1
-BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnome-devel >= 2.10.0
-BuildRequires:	libgnomecanvas-devel >= 2.10.0
+BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	libgnome-devel >= 2.8.0
+BuildRequires:	libgnomecanvas-devel >= 2.8.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.19
+BuildRequires:	libxml2-devel >= 2.6.13
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 %{?with_xlibs:BuildRequires:	sed >= 4.0}
@@ -49,12 +49,12 @@ Summary:	Headers for libbonoboui
 Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.10.0
+Requires:	GConf2-devel >= 2.8.0.1
 Requires:	libbonobo-devel >= 2.8.1
-Requires:	libglade2-devel >= 1:2.5.1
-Requires:	libgnome-devel >= 2.10.0
-Requires:	libgnomecanvas-devel >= 2.10.0
-Requires:	libxml2-devel >= 1:2.6.19
+Requires:	libglade2-devel >= 1:2.4.0
+Requires:	libgnome-devel >= 2.8.0
+Requires:	libgnomecanvas-devel >= 2.8.0
+Requires:	libxml2-devel >= 2.6.13
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -72,7 +72,6 @@ Summary:	Bonobo component viewer
 Summary(pl):	Przegl±darka komponentów bonobo
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
-Conflicts:	libbonoboui < 0:2.8.1-4
 
 %description -n gnome-bonobo-browser
 Shows available Bonobo components.
@@ -110,6 +109,7 @@ sed -ie \
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
+
 %{__make}
 
 %install
