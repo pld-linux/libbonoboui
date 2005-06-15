@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_with	xlibs	# with xlibs
+%bcond_without	static	# don't build static library
 #
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
@@ -108,7 +109,8 @@ sed -ie \
 %{__automake}
 %configure \
 	--enable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	%{!?with_static:--disable-static}
 
 %{__make}
 
@@ -150,9 +152,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libbonoboui-2.0
 %{_gtkdocdir}/%{name}
 
+%if %{with static}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
 
 %files -n gnome-bonobo-browser
 %defattr(644,root,root,755)
