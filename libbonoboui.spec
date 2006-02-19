@@ -1,6 +1,5 @@
 #
 # Conditional build:
-%bcond_with	xlibs	# with xlibs
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Bonobo user interface components
@@ -14,25 +13,22 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.13/%{name}-%{version}.
 # Source0-md5:	076905fc924b22e9b5656a51490ea07e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-%{?with_xlibs:BuildRequires:	libX11-devel}
 BuildRequires:	GConf2-devel >= 2.8.0.1
 BuildRequires:	ORBit2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-#BuildRequires:	howl-devel >= 0.9.10
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.4.1
+BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonobo-devel >= 2.10.1
+BuildRequires:	libbonobo-devel >= 2.13.0
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.8.0
+BuildRequires:	libgnome-devel >= 2.13.7
 BuildRequires:	libgnomecanvas-devel >= 2.8.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.13
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-%{?with_xlibs:BuildRequires:	sed >= 4.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -95,12 +91,6 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %prep
 %setup -q
 %patch0 -p1
-
-%if %{with xlibs}
-sed -ie \
-	's/AC_PATH_XTRA/PKG_CHECK_MODULES(X, [x11], [$x_no = no])/' \
-	configure.in
-%endif
 
 %build
 %{__libtoolize}
