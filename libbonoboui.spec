@@ -1,35 +1,34 @@
 #
 # Conditional build:
-%bcond_with	xlibs	# with xlibs
+%bcond_without	static_libs	# don't build static library
 #
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.8.1
+Version:	2.13.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	b23daafa8344a88696d497f20285ef55
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.13/%{name}-%{version}.tar.bz2
+# Source0-md5:	076905fc924b22e9b5656a51490ea07e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-%{?with_xlibs:BuildRequires:	libX11-devel}
 BuildRequires:	GConf2-devel >= 2.8.0.1
 BuildRequires:	ORBit2-devel >= 2.12.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.4.1
+BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonobo-devel >= 2.8.1
+BuildRequires:	libbonobo-devel >= 2.13.0
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.8.0
+BuildRequires:	libgnome-devel >= 2.13.7
 BuildRequires:	libgnomecanvas-devel >= 2.8.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.13
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-build >= 4.1-10
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -65,6 +64,18 @@ libbonoboui.
 Ten pakiet zawiera pliki nag³ówkowe potrzebne do kompilacji programów
 u¿ywaj±cych libbonoboui.
 
+%package -n gnome-bonobo-browser
+Summary:	Bonobo component viewer
+Summary(pl):	Przegl±darka komponentów bonobo
+Group:		Applications/System
+Requires:	%{name} = %{version}-%{release}
+
+%description -n gnome-bonobo-browser
+Shows available Bonobo components.
+
+%description -n gnome-bonobo-browser -l pl
+Wy¶wietla dostêpne komponenty bonobo.
+
 %package static
 Summary:	Static libbonoboui library
 Summary(pl):	Statyczna biblioteka libbonoboui
@@ -81,12 +92,6 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %setup -q
 %patch0 -p1
 
-%if %{with xlibs}
-sed -ie \
-	's/AC_PATH_XTRA/PKG_CHECK_MODULES(X, [x11], [$x_no = no])/' \
-	configure.in
-%endif
-
 %build
 %{__libtoolize}
 %{__aclocal}
@@ -94,7 +99,8 @@ sed -ie \
 %{__automake}
 %configure \
 	--enable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	%{!?with_static_libs:--disable-static}
 
 %{__make}
 
@@ -114,19 +120,18 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/test-moniker
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
 %{_libdir}/bonobo/servers/*
 %{_libdir}/bonobo-2.0/samples/*
 %{_datadir}/gnome-2.0
-%{_desktopdir}/*.desktop
 
 %files devel
 %defattr(644,root,root,755)
@@ -137,6 +142,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libbonoboui-2.0
 %{_gtkdocdir}/%{name}
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
+
+%files -n gnome-bonobo-browser
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/bonobo-browser
+%{_desktopdir}/*.desktop
