@@ -24,7 +24,7 @@ BuildRequires:	intltool >= 0.29
 BuildRequires:	libbonobo-devel >= 2.13.0
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnome-devel >= 2.13.7
-BuildRequires:	libgnomecanvas-devel >= 2.8.0
+BuildRequires:	libgnomecanvas-devel >= 2.13.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.13
 BuildRequires:	pkgconfig
