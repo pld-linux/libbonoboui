@@ -1,15 +1,12 @@
-diff -urN aa/libbonoboui-2.8.1/tools/browser/bonobo-browser.desktop.in libbonoboui-2.8.1/tools/browser/bonobo-browser.desktop.in
---- aa/libbonoboui-2.8.1/tools/browser/bonobo-browser.desktop.in	2004-09-24 01:21:46.000000000 +0200
-+++ libbonoboui-2.8.1/tools/browser/bonobo-browser.desktop.in	2005-02-05 17:24:46.820752208 +0100
-@@ -1,8 +1,9 @@
- [Desktop Entry]
-+Encoding=UTF-8
- _Name=Bonobo Component Browser
- _Comment=Shows available Bonobo components
+diff -aurN libbonoboui-2.14.0.orig/tools/browser/bonobo-browser.desktop.in libbonoboui-2.14.0/tools/browser/bonobo-browser.desktop.in
+--- libbonoboui-2.14.0.orig/tools/browser/bonobo-browser.desktop.in	2006-02-24 14:40:48.000000000 +0100
++++ libbonoboui-2.14.0/tools/browser/bonobo-browser.desktop.in	2006-03-14 23:12:40.403699536 +0100
+@@ -5,7 +5,7 @@
  Exec=bonobo-browser
--Terminal=0
-+Terminal=false
+ Terminal=false
  Type=Application
- Icon=
--Categories=Application;System;
-+Categories=System;
+-Categories=GNOME;GTK;Application;System;
++Categories=GNOME;GTK;System;
+ NoDisplay=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=bonobo
