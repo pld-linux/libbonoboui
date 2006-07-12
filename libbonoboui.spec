@@ -6,7 +6,7 @@ Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.14.0
-Release:	4
+Release:	5
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.14/%{name}-%{version}.tar.bz2
@@ -18,20 +18,20 @@ BuildRequires:	ORBit2-devel >= 1:2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gtk+2-devel >= 2:2.9.2
-BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonobo-devel >= 2.14.0
-BuildRequires:	libglade2-devel >= 1:2.5.1
-BuildRequires:	libgnome-devel >= 2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	gtk-doc >= 1.6
+BuildRequires:	intltool >= 0.35.0
+BuildRequires:	libbonobo-devel >= 2.15.0
+BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
+BuildRequires:	libgnome-devel >= 2.15.1
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.25
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	GConf2 >= 2.14.0
-Requires:	libbonobo >= 2.14.0
-Requires:	libgnome >= 2.14.0
+Requires:	libbonobo >= 2.15.0
+Requires:	libgnome >= 2.15.1
 Requires:	libgnomecanvas >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,11 +51,11 @@ Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
-Requires:	libbonobo-devel >= 2.14.0
-Requires:	libglade2-devel >= 1:2.5.1
-Requires:	libgnome-devel >= 2.14.0
+Requires:	libbonobo-devel >= 2.15.0
+Requires:	libglade2-devel >= 1:2.6.0
+Requires:	libgnome-devel >= 2.15.1
 Requires:	libgnomecanvas-devel >= 2.14.0
-Requires:	libxml2-devel >= 2.6.25
+Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -102,6 +102,7 @@ Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
