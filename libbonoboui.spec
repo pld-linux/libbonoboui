@@ -5,33 +5,33 @@
 Summary:	Bonobo user interface components
 Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.15.1
+Version:	2.16.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.15/%{name}-%{version}.tar.bz2
-# Source0-md5:	da86d37f26d53958048cc89cb0cc304a
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.16/%{name}-%{version}.tar.bz2
+# Source0-md5:	603ffc92491ef27ccfbc2b69abd3906b
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	ORBit2-devel >= 1:2.14.2
+BuildRequires:	ORBit2-devel >= 1:2.14.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gtk+2-devel >= 2:2.10.2
 BuildRequires:	gtk-doc >= 1.7
 BuildRequires:	intltool >= 0.35.0
-BuildRequires:	libbonobo-devel >= 2.15.3
+BuildRequires:	libbonobo-devel >= 2.16.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
-BuildRequires:	libgnome-devel >= 2.15.2
+BuildRequires:	libgnome-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	GConf2 >= 2.14.0
-Requires:	libbonobo >= 2.15.3
-Requires:	libgnome >= 2.15.2
+Requires:	libbonobo >= 2.16.0
+Requires:	libgnome >= 2.16.0
 Requires:	libgnomecanvas >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,9 +51,9 @@ Summary(pl):	Pliki nag³ówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
-Requires:	libbonobo-devel >= 2.15.3
+Requires:	libbonobo-devel >= 2.16.0
 Requires:	libglade2-devel >= 1:2.6.0
-Requires:	libgnome-devel >= 2.15.2
+Requires:	libgnome-devel >= 2.16.0
 Requires:	libgnomecanvas-devel >= 2.14.0
 Requires:	libxml2-devel >= 1:2.6.26
 
