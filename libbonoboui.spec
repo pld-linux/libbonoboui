@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Bonobo user interface components
-Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
+Summary(pl.UTF-8):   Komponenty interfejsu uÅ¼ytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.16.0
 Release:	2
@@ -40,14 +40,14 @@ Bonobo is a component system based on CORBA, used by the GNOME
 desktop. libbonoboui contains the user interface related components
 that come with Bonobo.
 
-%description -l pl
-Bonobo jest systemem komponentów bazuj±cym na CORB-ie, u¿ywanym przez
-¶rodowisko GNOME. libbonoboui zawiera komponenty zwi±zane z
-interfejsem u¿ytkownika, które przychodz± z Bonobo.
+%description -l pl.UTF-8
+Bonobo jest systemem komponentÃ³w bazujÄ…cym na CORB-ie, uÅ¼ywanym przez
+Å›rodowisko GNOME. libbonoboui zawiera komponenty zwiÄ…zane z
+interfejsem uÅ¼ytkownika, ktÃ³re przychodzÄ… z Bonobo.
 
 %package devel
 Summary:	Headers for libbonoboui
-Summary(pl):	Pliki nag³ówkowe libbonoboui
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
@@ -64,44 +64,44 @@ desktop. libbonoboui contains GUI components that come with Bonobo.
 This package contains header files used to compile programs that use
 libbonoboui.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe potrzebne do kompilacji programów
-u¿ywaj±cych libbonoboui.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe potrzebne do kompilacji programÃ³w
+uÅ¼ywajÄ…cych libbonoboui.
 
 %package -n gnome-bonobo-browser
 Summary:	Bonobo component viewer
-Summary(pl):	Przegl±darka komponentów bonobo
+Summary(pl.UTF-8):   PrzeglÄ…darka komponentÃ³w bonobo
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
 
 %description -n gnome-bonobo-browser
 Shows available Bonobo components.
 
-%description -n gnome-bonobo-browser -l pl
-Wy¶wietla dostêpne komponenty bonobo.
+%description -n gnome-bonobo-browser -l pl.UTF-8
+WyÅ›wietla dostÄ™pne komponenty bonobo.
 
 %package static
 Summary:	Static libbonoboui library
-Summary(pl):	Statyczna biblioteka libbonoboui
+Summary(pl.UTF-8):   Statyczna biblioteka libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of libbonoboui.
 
-%description static -l pl
-Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
+%description static -l pl.UTF-8
+Ten pakiet zawiera statycznÄ… wersjÄ™ biblioteki libbonoboui.
 
 %package apidocs
 Summary:	libbonoboui API documentation
-Summary(pl):	Dokumentacja API libbonoboui
+Summary(pl.UTF-8):   Dokumentacja API libbonoboui
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 libbonoboui API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API libbonoboui.
 
 %prep
