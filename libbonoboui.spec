@@ -3,7 +3,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Bonobo user interface components
-Summary(pl.UTF-8):   Komponenty interfejsu użytkownika do Bonobo
+Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.16.0
 Release:	2
@@ -47,7 +47,7 @@ interfejsem użytkownika, które przychodzą z Bonobo.
 
 %package devel
 Summary:	Headers for libbonoboui
-Summary(pl.UTF-8):   Pliki nagłówkowe libbonoboui
+Summary(pl.UTF-8):	Pliki nagłówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
@@ -70,7 +70,7 @@ używających libbonoboui.
 
 %package -n gnome-bonobo-browser
 Summary:	Bonobo component viewer
-Summary(pl.UTF-8):   Przeglądarka komponentów bonobo
+Summary(pl.UTF-8):	Przeglądarka komponentów bonobo
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
 
@@ -82,7 +82,7 @@ Wyświetla dostępne komponenty bonobo.
 
 %package static
 Summary:	Static libbonoboui library
-Summary(pl.UTF-8):   Statyczna biblioteka libbonoboui
+Summary(pl.UTF-8):	Statyczna biblioteka libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -94,7 +94,7 @@ Ten pakiet zawiera statyczną wersję biblioteki libbonoboui.
 
 %package apidocs
 Summary:	libbonoboui API documentation
-Summary(pl.UTF-8):   Dokumentacja API libbonoboui
+Summary(pl.UTF-8):	Dokumentacja API libbonoboui
 Group:		Documentation
 Requires:	gtk-doc-common
 
