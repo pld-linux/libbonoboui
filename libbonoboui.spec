@@ -3,32 +3,36 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Bonobo user interface components
-Summary(pl):	Komponenty interfejsu u¿ytkownika do Bonobo
+Summary(pl.UTF-8):	Komponenty interfejsu uÅ¼ytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.14.0
+Version:	2.17.94
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	dc26dc17cddc625cac37ecfab263a51a
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libbonoboui/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	e82fc73b95f2f3a9a8aff7e349f17a3a
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.8.0.1
-BuildRequires:	ORBit2-devel >= 2.12.0
+BuildRequires:	GConf2-devel >= 2.16.1
+BuildRequires:	ORBit2-devel >= 1:2.14.7
 BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gtk+2-devel >= 2:2.6.0
-BuildRequires:	gtk-doc >= 1.0
-BuildRequires:	intltool >= 0.29
-BuildRequires:	libbonobo-devel >= 2.13.0
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.13.7
-BuildRequires:	libgnomecanvas-devel >= 2.13.0
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk-doc >= 1.8
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libbonobo-devel >= 2.17.92
+BuildRequires:	libglade2-devel >= 1:2.6.0
+BuildRequires:	libgnomecanvas-devel >= 2.14.0
+BuildRequires:	libgnome-devel >= 2.17.92
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.13
+BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+Requires:	GConf2 >= 2.16.1
+Requires:	libbonobo >= 2.17.92
+Requires:	libgnome >= 2.17.92
+Requires:	libgnomecanvas >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,22 +40,23 @@ Bonobo is a component system based on CORBA, used by the GNOME
 desktop. libbonoboui contains the user interface related components
 that come with Bonobo.
 
-%description -l pl
-Bonobo jest systemem komponentów bazuj±cym na CORB-ie, u¿ywanym przez
-¶rodowisko GNOME. libbonoboui zawiera komponenty zwi±zane z
-interfejsem u¿ytkownika, które przychodz± z Bonobo.
+%description -l pl.UTF-8
+Bonobo jest systemem komponentÃ³w bazujÄ…cym na CORB-ie, uÅ¼ywanym przez
+Å›rodowisko GNOME. libbonoboui zawiera komponenty zwiÄ…zane z
+interfejsem uÅ¼ytkownika, ktÃ³re przychodzÄ… z Bonobo.
 
 %package devel
 Summary:	Headers for libbonoboui
-Summary(pl):	Pliki nag³ówkowe libbonoboui
+Summary(pl.UTF-8):	Pliki nagÅ‚Ã³wkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.8.0.1
-Requires:	libbonobo-devel >= 2.8.1
-Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnome-devel >= 2.8.0
-Requires:	libgnomecanvas-devel >= 2.8.0
-Requires:	libxml2-devel >= 2.6.13
+Requires:	GConf2-devel >= 2.16.1
+Requires:	ORBit2-devel >= 2.14.7
+Requires:	libbonobo-devel >= 2.17.92
+Requires:	libglade2-devel >= 1:2.6.0
+Requires:	libgnome-devel >= 2.17.92
+Requires:	libgnomecanvas-devel >= 2.14.0
+Requires:	libxml2-devel >= 1:2.6.27
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -60,39 +65,54 @@ desktop. libbonoboui contains GUI components that come with Bonobo.
 This package contains header files used to compile programs that use
 libbonoboui.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag³ówkowe potrzebne do kompilacji programów
-u¿ywaj±cych libbonoboui.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagÅ‚Ã³wkowe potrzebne do kompilacji programÃ³w
+uÅ¼ywajÄ…cych libbonoboui.
 
 %package -n gnome-bonobo-browser
 Summary:	Bonobo component viewer
-Summary(pl):	Przegl±darka komponentów bonobo
+Summary(pl.UTF-8):	PrzeglÄ…darka komponentÃ³w bonobo
 Group:		Applications/System
 Requires:	%{name} = %{version}-%{release}
 
 %description -n gnome-bonobo-browser
 Shows available Bonobo components.
 
-%description -n gnome-bonobo-browser -l pl
-Wy¶wietla dostêpne komponenty bonobo.
+%description -n gnome-bonobo-browser -l pl.UTF-8
+WyÅ›wietla dostÄ™pne komponenty bonobo.
 
 %package static
 Summary:	Static libbonoboui library
-Summary(pl):	Statyczna biblioteka libbonoboui
+Summary(pl.UTF-8):	Statyczna biblioteka libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains static version of libbonoboui.
 
-%description static -l pl
-Ten pakiet zawiera statyczn± wersjê biblioteki libbonoboui.
+%description static -l pl.UTF-8
+Ten pakiet zawiera statycznÄ… wersjÄ™ biblioteki libbonoboui.
+
+%package apidocs
+Summary:	libbonoboui API documentation
+Summary(pl.UTF-8):	Dokumentacja API libbonoboui
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+libbonoboui API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API libbonoboui.
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
+%{__gtkdocize}
+%{__glib_gettextize}
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -113,8 +133,6 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules and *.la for glade modules
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
-
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -125,7 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_bindir}/test-moniker
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
@@ -140,7 +158,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_pkgconfigdir}/*.pc
 %{_includedir}/libbonoboui-2.0
-%{_gtkdocdir}/%{name}
 
 %if %{with static_libs}
 %files static
@@ -152,3 +169,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bonobo-browser
 %{_desktopdir}/*.desktop
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
