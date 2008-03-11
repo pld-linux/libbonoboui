@@ -5,32 +5,34 @@
 Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.20.0
-Release:	2
+Version:	2.22.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	14427a459f6ca355de5f5e47ce95c1c4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	926f1c7782c25e3f597c06d9aae42972
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.20.0
-BuildRequires:	ORBit2-devel >= 1:2.14.8
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	intltool >= 0.36.1
-BuildRequires:	libbonobo-devel >= 2.20.0
+BuildRequires:	gnome-vfs2-devel >= 2.22.0
+BuildRequires:	libbonobo-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
-BuildRequires:	libgnome-devel >= 2.20.0
+BuildRequires:	libgnome-devel >= 2.22.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.29
+BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
+BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	GConf2 >= 2.20.0
-Requires:	libbonobo >= 2.20.0
-Requires:	libgnome >= 2.20.0
+Requires:	GConf2 >= 2.22.0
+Requires:	libbonobo >= 2.22.0
+Requires:	libgnome >= 2.22.0
 Requires:	libgnomecanvas >= 2.20.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -51,13 +53,12 @@ Summary:	Headers for libbonoboui
 Summary(pl.UTF-8):	Pliki nagłówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.20.0
-Requires:	ORBit2-devel >= 2.14.8
-Requires:	libbonobo-devel >= 2.20.0
+Requires:	GConf2-devel >= 2.22.0
+Requires:	libbonobo-devel >= 2.22.0
 Requires:	libglade2-devel >= 1:2.6.2
-Requires:	libgnome-devel >= 2.20.0
+Requires:	libgnome-devel >= 2.22.0
 Requires:	libgnomecanvas-devel >= 2.20.0
-Requires:	libxml2-devel >= 1:2.6.29
+Requires:	libxml2-devel >= 1:2.6.31
 
 %description devel
 Bonobo is a component system based on CORBA, used by the GNOME
@@ -121,8 +122,8 @@ libbonoboui - przykładowe programy.
 %prep
 %setup -q
 
-sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
-mv -f po/sr\@{Latn,latin}.po
+sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
+mv -f po/sr@{Latn,latin}.po
 
 %build
 %{__gtkdocize}
@@ -131,6 +132,7 @@ mv -f po/sr\@{Latn,latin}.po
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--enable-gtk-doc \
@@ -166,30 +168,32 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_bindir}/test-moniker
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/libglade/2.0/*.so
-%{_libdir}/bonobo/servers/*
-%{_libdir}/bonobo-2.0/samples/*
+%attr(755,root,root) %{_libdir}/libbonoboui-2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libbonoboui-2.so.0
+%attr(755,root,root) %{_libdir}/libglade/2.0/libbonobo.so
+%{_libdir}/bonobo/servers/Bonobo_Sample_Controls.server
+%{_libdir}/bonobo/servers/CanvDemo.server
+%attr(755,root,root) %{_libdir}/bonobo-2.0/samples/bonobo-sample-controls-2
 %{_datadir}/gnome-2.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/*.xml doc/*.txt doc/*.html doc/*.dtd
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_pkgconfigdir}/*.pc
+%attr(755,root,root) %{_libdir}/libbonoboui-2.so
+%{_libdir}/libbonoboui-2.la
+%{_pkgconfigdir}/libbonoboui-2.0.pc
 %{_includedir}/libbonoboui-2.0
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libbonoboui-2.a
 %endif
 
 %files -n gnome-bonobo-browser
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/bonobo-browser
-%{_desktopdir}/*.desktop
+%{_desktopdir}/bonobo-browser.desktop
 
 %files apidocs
 %defattr(644,root,root,755)
