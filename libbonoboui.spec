@@ -10,7 +10,7 @@ Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	926f1c7782c25e3f597c06d9aae42972
+# Source0-md5:	e4e4d74c9387d08c956574f981cf91f2
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
