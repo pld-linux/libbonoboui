@@ -5,12 +5,12 @@
 Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.22.0
+Version:	2.23.4
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	e4e4d74c9387d08c956574f981cf91f2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.23/%{name}-%{version}.tar.bz2
+# Source0-md5:	e3c664475a706a7499b51ed885cd7ca9
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf
@@ -19,7 +19,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	intltool >= 0.36.1
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	libbonobo-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
