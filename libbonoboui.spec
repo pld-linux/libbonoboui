@@ -20,7 +20,6 @@ BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	gnome-vfs2-devel >= 2.22.0
 BuildRequires:	libbonobo-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
