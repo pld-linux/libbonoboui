@@ -5,34 +5,33 @@
 Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
-Version:	2.22.0
+Version:	2.24.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	e4e4d74c9387d08c956574f981cf91f2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	2076638f9aa9565c12b2bc264ecc4f18
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.22.0
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	intltool >= 0.36.1
-BuildRequires:	gnome-vfs2-devel >= 2.22.0
-BuildRequires:	libbonobo-devel >= 2.22.0
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libbonobo-devel >= 2.24.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
-BuildRequires:	libgnome-devel >= 2.22.0
+BuildRequires:	libgnome-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	GConf2 >= 2.22.0
-Requires:	libbonobo >= 2.22.0
-Requires:	libgnome >= 2.22.0
+Requires:	GConf2 >= 2.24.0
+Requires:	libbonobo >= 2.24.0
+Requires:	libgnome >= 2.24.0
 Requires:	libgnomecanvas >= 2.20.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -53,10 +52,10 @@ Summary:	Headers for libbonoboui
 Summary(pl.UTF-8):	Pliki nagłówkowe libbonoboui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.22.0
-Requires:	libbonobo-devel >= 2.22.0
+Requires:	GConf2-devel >= 2.24.0
+Requires:	libbonobo-devel >= 2.24.0
 Requires:	libglade2-devel >= 1:2.6.2
-Requires:	libgnome-devel >= 2.22.0
+Requires:	libgnome-devel >= 2.24.0
 Requires:	libgnomecanvas-devel >= 2.20.0
 Requires:	libxml2-devel >= 1:2.6.31
 
@@ -121,9 +120,6 @@ libbonoboui - przykładowe programy.
 
 %prep
 %setup -q
-
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv -f po/sr@{Latn,latin}.po
 
 %build
 %{__gtkdocize}
