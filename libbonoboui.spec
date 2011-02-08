@@ -6,7 +6,7 @@ Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.24.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
@@ -153,7 +153,11 @@ find samples/ -type f -name "Makefile*" -exec rm -f {} \;
 cp -r samples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # no static modules and *.la for glade modules
-rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.la
+%if %{with static_libs}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+%endif
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -179,7 +183,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/*.xml doc/*.txt doc/*.html doc/*.dtd
 %attr(755,root,root) %{_libdir}/libbonoboui-2.so
-%{_libdir}/libbonoboui-2.la
 %{_pkgconfigdir}/libbonoboui-2.0.pc
 %{_includedir}/libbonoboui-2.0
 
