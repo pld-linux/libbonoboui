@@ -6,8 +6,8 @@ Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.24.5
-Release:	1
-License:	LGPL
+Release:	2
+License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	853be8e28aaa4ce48ba60be7d9046bf4
@@ -121,8 +121,6 @@ libbonoboui - przykładowe programy.
 
 %prep
 %setup -q
-%{__sed} -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
 
 %build
 %{__gtkdocize}
@@ -158,6 +156,8 @@ cp -r samples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
 %endif
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/{sr@ije,sr@ijekavian}
 
 %find_lang %{name} --with-gnome --all-name
 
