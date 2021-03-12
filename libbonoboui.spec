@@ -1,17 +1,18 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static library
+%bcond_without	static_libs	# static library
 #
 Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.24.5
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
+Source0:	https://download.gnome.org/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	853be8e28aaa4ce48ba60be7d9046bf4
-URL:		http://www.gnome.org/
+Patch0:		%{name}-includes.patch
+URL:		https://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
@@ -32,17 +33,16 @@ BuildRequires:	pango-devel
 BuildRequires:	pangox-compat-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libX11-devel
 BuildConflicts:	gdk-pixbuf-devel < 0.12
 Requires:	GConf2-libs >= 2.24.0
 Requires:	glib2 >= 1:2.6.0
 Requires:	gtk+2 >= 2:2.12.8
-Requires:	libbonobo-libs >= 2.24.0
+Requires:	libbonobo >= 2.24.0
 Requires:	libgnome-libs >= 2.24.0
 Requires:	libgnomecanvas >= 2.20.0
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -127,6 +127,7 @@ Wyświetla dostępne komponenty bonobo.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
@@ -204,7 +205,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}
+%{_gtkdocdir}/libbonoboui
 
 %files examples
 %defattr(644,root,root,755)

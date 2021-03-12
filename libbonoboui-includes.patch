@@ -1,0 +1,10 @@
+--- libbonoboui-2.24.5/tools/browser/Makefile.am.orig	2009-04-20 15:17:21.000000000 +0200
++++ libbonoboui-2.24.5/tools/browser/Makefile.am	2021-03-12 22:22:58.701905638 +0100
+@@ -2,7 +2,6 @@
+ 	-DBONOBO_BROWSER_DATADIR=\""$(datadir)"\"	\
+         -DBONOBO_SUPPORT_LOCALEDIR=\""$(datadir)/locale"\"        \
+ 	-I$(srcdir) -I$(top_srcdir) 			\
+-	-I$(top_srcdir)/bonobo-browser			\
+ 	$(BONOBOUI_CFLAGS)				\
+ 	$(WARN_CFLAGS)
+ 
