@@ -6,7 +6,7 @@ Summary:	Bonobo user interface components
 Summary(pl.UTF-8):	Komponenty interfejsu użytkownika do Bonobo
 Name:		libbonoboui
 Version:	2.24.5
-Release:	4
+Release:	5
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	https://download.gnome.org/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
