@@ -1,0 +1,22 @@
+--- libbonoboui-2.24.5/bonobo/bonobo-control.c.orig	2009-05-06 14:32:42.000000000 +0200
++++ libbonoboui-2.24.5/bonobo/bonobo-control.c	2025-07-27 11:53:37.370554364 +0200
+@@ -1368,7 +1368,7 @@
+ 	old_plug = (BonoboPlug *) control->priv->plug;
+ 
+ 	if (plug)
+-		control->priv->plug = g_object_ref (plug);
++		control->priv->plug = GTK_WIDGET(g_object_ref (plug));
+ 	else
+ 		control->priv->plug = NULL;
+ 
+--- libbonoboui-2.24.5/bonobo/bonobo-control-frame.c.orig	2009-04-20 15:17:21.000000000 +0200
++++ libbonoboui-2.24.5/bonobo/bonobo-control-frame.c	2025-07-27 11:52:40.036876145 +0200
+@@ -1088,7 +1088,7 @@
+ 	old_socket = (BonoboSocket *) frame->priv->socket;
+ 
+ 	if (socket)
+-		frame->priv->socket = g_object_ref (socket);
++		frame->priv->socket = GTK_WIDGET(g_object_ref (socket));
+ 	else
+ 		frame->priv->socket = NULL;
+ 

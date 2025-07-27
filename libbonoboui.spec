@@ -12,6 +12,7 @@ Group:		X11/Libraries
 Source0:	https://download.gnome.org/sources/libbonoboui/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	853be8e28aaa4ce48ba60be7d9046bf4
 Patch0:		%{name}-includes.patch
+Patch1:		types.patch
 URL:		https://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
@@ -128,6 +129,7 @@ Wyświetla dostępne komponenty bonobo.
 %prep
 %setup -q
 %patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__gtkdocize}
