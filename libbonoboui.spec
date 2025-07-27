@@ -95,6 +95,7 @@ Summary:	libbonoboui API documentation
 Summary(pl.UTF-8):	Dokumentacja API libbonoboui
 Group:		Documentation
 Requires:	gtk-doc-common
+BuildArch:	noarch
 
 %description apidocs
 libbonoboui API documentation.
@@ -107,6 +108,7 @@ Summary:	libbonoboui - example programs
 Summary(pl.UTF-8):	libbonoboui - przykładowe programy
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+BuildArch:	noarch
 
 %description examples
 libbonoboui - example programs.
